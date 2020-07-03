@@ -14,7 +14,7 @@ const init = async () => {
   clear();
   console.log(
     chalk.red(
-      figlet.textSync("Express-Booster", {
+      figlet.textSync("express-booster", {
         horizontalLayout: "full",
       })
     )
