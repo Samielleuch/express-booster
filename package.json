@@ -1,5 +1,5 @@
 {
-  "name": "expressboost",
+  "name": "express-booster",
   "version": "1.0.0",
   "description": "a bootstraping tool to generate production level structured express Api applications",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\""
   },
   "bin": {
-    "expressboost": "./bin/RestGenCLI.js"
+    "express-booster": "./bin/RestGenCLI.js"
   },
   "preferGlobal": true,
   "author": "Elleuch Sami",
