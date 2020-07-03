@@ -5,7 +5,7 @@ let basedir = "./src/";
 let controlDir = "controllers";
 let routerDir = "routers";
 let configDir = "config";
-
+const Listr =require("listr");
 const cli = require("clui");
 const shell = require("shelljs");
 const Spinner = cli.Spinner;
@@ -25,6 +25,8 @@ const figlet = require("figlet");
 // Copying Files !
 const packjson = require("../lib/packjsonMaker");
 const Cliquery = require("../lib/CLIquery")
+const controller = require("../lib/Controller");
+
 //Copying server.js
 // FileMaker.copyFile(basedir + "server.js", basedir + "server.js", (err) => {
 //   console.log(err);
@@ -34,7 +36,7 @@ const init = async () => {
   clear();
   console.log(
     chalk.red(
-      figlet.textSync("Expressify :D ", {
+      figlet.textSync("Expressify", {
         horizontalLayout: "full",
       })
     )
@@ -43,11 +45,15 @@ const init = async () => {
 
 
 
+
 (async () => {
   init();
+  //await tasks.run();
   const answer = await Cliquery.ask();
- // console.log(answer);
-   await packjson.createPackageJson(shell , chalk , answer);
-   await packjson.addDep(chalk , Spinner , answer );
+  console.log(answer);
+  controller.init(answer);
+  await controller.tasks.run()
+  // await packjson.createPackageJson(shell , chalk , answer);
+   //await packjson.addDep(chalk , Spinner , answer );
   //await createPackageJson(JSON.stringify(packageJson, null, 1));
 })();
