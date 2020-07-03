@@ -27,4 +27,15 @@ const init = async () => {
   controller.init(answer);
   FileMaker.init(answer);
   await controller.tasks.run();
+  if (answer.DEPS.includes("mongoose")) {
+    console.log(chalk.blue.bold("make sure you have mongodb installed and the DB Exists !  "));
+  }
+    console.log(chalk.red.bold("make sure you change configurations in /config/config.js to setup DB connections "));
+    console.log(chalk.green.bold(`\n\t \t cd  ${answer.projName}`));
+  if (answer.DEPS.includes("nodemon")) {
+    console.log(chalk.blue("\t to start in Debug mode using nodemon:"));
+    console.log(chalk.green.bold("\t \t npm run dev 👍"));
+  }
+  console.log(chalk.blue("\t to start without Debug"));
+  console.log(chalk.green.bold("\t \t npm run start 👍"));
 })();
