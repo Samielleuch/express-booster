@@ -5,7 +5,7 @@ let basedir = "./src/";
 let controlDir = "controllers";
 let routerDir = "routers";
 let configDir = "config";
-const Listr =require("listr");
+const Listr = require("listr");
 const cli = require("clui");
 const shell = require("shelljs");
 const Spinner = cli.Spinner;
@@ -23,8 +23,8 @@ const figlet = require("figlet");
 // fs.mkdirSync(basedir + configDir);
 
 // Copying Files !
-const packjson = require("../lib/packjsonMaker");
-const Cliquery = require("../lib/CLIquery")
+const tests = require("../lib/ServerMaker");
+const Cliquery = require("../lib/CLIquery");
 const controller = require("../lib/Controller");
 
 //Copying server.js
@@ -43,17 +43,16 @@ const init = async () => {
   );
 };
 
-
-
-
 (async () => {
   init();
   //await tasks.run();
-  const answer = await Cliquery.ask();
-  console.log(answer);
-  controller.init(answer);
-  await controller.tasks.run()
+
+  //const answer = await Cliquery.ask();
+  //console.log(answer);
+  //controller.init(answer);
+  //await controller.tasks.run()
+  tests.testKEKW();
   // await packjson.createPackageJson(shell , chalk , answer);
-   //await packjson.addDep(chalk , Spinner , answer );
+  //await packjson.addDep(chalk , Spinner , answer );
   //await createPackageJson(JSON.stringify(packageJson, null, 1));
 })();
