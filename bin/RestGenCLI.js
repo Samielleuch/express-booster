@@ -1,10 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-let basedir = "./src/";
-let controlDir = "controllers";
-let routerDir = "routers";
-let configDir = "config";
+
 const Listr = require("listr");
 const cli = require("clui");
 const shell = require("shelljs");
@@ -47,11 +44,13 @@ const init = async () => {
   init();
   //await tasks.run();
 
-  //const answer = await Cliquery.ask();
+  const answer = await Cliquery.ask();
   //console.log(answer);
-  //controller.init(answer);
+  controller.init(answer);
+  tests.init(answer);
+
   //await controller.tasks.run()
-  tests.testKEKW();
+  tests.CreateServerFile();
   // await packjson.createPackageJson(shell , chalk , answer);
   //await packjson.addDep(chalk , Spinner , answer );
   //await createPackageJson(JSON.stringify(packageJson, null, 1));
