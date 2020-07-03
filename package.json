@@ -1,6 +1,6 @@
 {
   "name": "express-booster",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a bootstraping tool to generate production level structured express Api applications",
   "main": "index.js",
   "scripts": {
