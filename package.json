@@ -1,7 +1,7 @@
 {
-  "name": "expressrestgeneratorcli",
+  "name": "expressboost",
   "version": "1.0.0",
-  "description": "",
+  "description": "a bootstraping tool to generate production level structured express Api applications",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,7 @@
   "bin": {
     "expressboost": "./bin/RestGenCLI.js"
   },
+  "preferGlobal": true,
   "author": "Elleuch Sami",
   "license": "ISC",
   "dependencies": {
