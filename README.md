@@ -1,9 +1,7 @@
 
-<h1 align="center">
-  <br>
-    <img src="https://i.imgur.com/tRAhwqi.png" height='400px'>
-  <br>
-</h1>
+<p align="center">
+<img src="https://i.imgur.com/tRAhwqi.png" height="400px">
+</p>
 
 <h4 align="center">A Fast Production Ready Generator tool for structured API node express applications</h4>
 
