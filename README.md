@@ -68,7 +68,7 @@
 
 ## Installation
 
-- `npm i -g express-booster` 
+- `npm i  express-booster -g` 
 ### Setup
 - fillout the Configuration at /src/config/config.js:
 
