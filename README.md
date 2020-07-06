@@ -102,6 +102,85 @@ $ express-booster
 
 > specify included packages with < space > according to the chosen options this will generate your project
 
+### Files Generation 
+- choosing passport-jwt generates /services/passportService.js
+
+- choosing mongoose generates /models/user.js
+
+- choosing mongoose  and passport-jwt generates :
+   
+   - /routers/routes/HelloWorld.js
+   - /routers/routes/users.js
+   - /controllers/helloWorldController.js
+   - /controllers/authController.js
+### Route Generation 
+- using passport-jwt and mongoose will autogenerate the following routes:
+> lets call Main_endpoint the endpoint created when calling the cli app (defaults to /)
+  - POST Main_endpoint/users/signin
+  - POST Main_endpoint/users/signUp
+> these endpoints use the authController and the users route to create jwt authentication login and signup
+#### sign up example
+##### POST request to : /users/signup
+
+```javascript
+{
+    "name" : "test" ,
+    "phone": 123456789 ,
+    "password" : "test" 
+  
+}
+```
+##### response:
+```javascript
+{
+    "success": true,
+    "status": "Registration Successful!"
+}
+```
+#### sign in example
+##### POST request to : /users/signin
+
+```javascript
+{
+    "name" : "test" ,
+    "phone": 123456789 ,
+    "password" : "test" 
+  
+}
+```
+##### response:
+```javascript
+{
+    "success": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjAzOGI3YWM4YTYxZTE4YzVlNDlmM2QiLCJpYXQiOjE1OTQwNjgxMjIsImV4cCI6MTU5NDA3MTcyMn0.Ko2GhbRHpS8Q5i9wBDryYNhYdCbZlir-6iOfRsz1GOE",
+    "user": {
+        "admin": false,
+        "_id": "5f038b7ac8a61e18c5e49f3d",
+        "name": "test",
+        "phone": 123456789,
+        "__v": 0
+    }
+}
+```
+
+  - GET Main_endpoint/HelloWorld
+  - GET Main_endpoint/HelloWorld/protected
+> this endpoint simulates a protected data using jwt tokens
+> you need to specify jwt token in Header to access the protected resource
+#### access protected data
+##### GET request to : /HelloWorld/protected
+
+##### provide following Header:
+| Key           | Value                                                                                                                                                                                |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Authorization | Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjAzOGI3YWM4YTYxZTE4YzVlNDlmM2QiLCJpYXQiOjE1OTQwNjgxMjIsImV4cCI6MTU5NDA3MTcyMn0.Ko2GhbRHpS8Q5i9wBDryYNhYdCbZlir-6iOfRsz1GOE |
+
+##### response:
+```javascript
+{
+    "msg": "Hello World with jwt :D "
+}
+```
 ---
 
 ## Contributing
